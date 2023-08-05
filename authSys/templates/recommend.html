@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        nav{
+            background-color:#563d7c;
+            color:#fff;
+            padding: 30px 60px;
+            display: flex;
+            justify-content:space-between;
+        }
+        nav ul{
+            display:flex;
+            justify-content:space-around;
+            align-items:center;
+        }
+        nav li{
+            list-style:none
+        }
+        nav li a{
+            color:#fff;
+            text-decoration:none;
+            font-weight:bold;
+            padding:5px 8px;
+        }
+        nav li a:hover{
+            color:yellow;
+            text-decoration:none;
+        }
+    </style>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav>
+        <h4>My Book Recommender</h4>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'topfiftybooks' %}">Top_50</a></li>
+           
+        </ul>
+    </nav>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Recommend Books</h1>
+                <div class="jumbotron" style="padding: 25px 40px;">
+                <form action="{% url 'recommend' %}" method="post">
+                    {% csrf_token %}
+                    <input name="user_input" type="text" class="form-control"><br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+            {% if data %}
+            {% for i in data %}
+                <div class="col-md-3" style="margin-top:30px">
+                    <div class="card">
+                        <div class="card-body">
+                            <img class="card-img-top" src="{{ i.2 }}">
+                            <p>{{ i.0 }}</p>
+                            <p>{{ i.1 }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
+<!--    <div class="jumbotron">-->
+<!--        <h1 class="display-4">Hello, world!</h1>-->
+<!--        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>-->
+<!--        <hr class="my-4">-->
+<!--        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>-->
+<!--        <a class="btn btn-primary btn-lg" href="/form" role="button">Learn more</a>-->
+<!--      </div>-->
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

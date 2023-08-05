@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        nav{
+            background-color: #563d7c;
+            color: #fff;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        nav ul{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        nav li{
+            list-style: none;
+        }
+        
+        nav li a{
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 8px;
+        }
+        
+        nav li a:hover{
+            color: yellow;
+            text-decoration: none;
+        }
+    </style>
+    <title>Form</title>
+  </head>
+  <body>
+    <nav>
+        <h4>Django</h4>
+    </nav>
+    <div class="container mt-4">
+        <div class="card" >
+            <div class="card-header">
+                Form
+            </div>
+            <div class="card-body">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Bike type</label>
+                        <input type="text" class="form-control" id="bktype" name="bktype" placeholder="Enter Bike type">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="Age">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">DOB</label>
+                        <input type="date" class="form-control" id="dob" name="dob" placeholder="dob">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Phone</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="phone">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
